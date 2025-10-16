@@ -30,7 +30,7 @@ import {Enum} from "./libraries/Enum.sol";
  *          2. Module Guard: managed in `ModuleManager` for transactions executed with `execTransactionFromModule`
  *      - Modules: Modules are contracts that can be used to extend the write functionality of a Safe. Managed in `ModuleManager`.
  *      - Fallback: Fallback handler is a contract that can provide additional functionality for Safe. Managed in `FallbackManager`. Please read the security risks in the `IFallbackManager` interface.
- *      Note: This version of the implementation contract doesn't emit events for the sake of gas efficiency and therefore requires a tracing node for indexing/
+ *      Note: This version of the implementation contract doesn't emit events for the sake of gas efficiency and therefore requires a tracing node for indexing.
  *      For the events-based implementation see `SafeL2.sol`.
  * @author Stefan George - @Georgi87
  * @author Richard Meissner - @rmeissner
@@ -368,7 +368,7 @@ contract Safe is
      *         The `data` parameter is completely ignored during signature verification.
      * @dev This function is provided for compatibility with previous versions.
      *      Use `checkSignatures(address,bytes32,bytes)` instead.
-     *      ⚠️⚠️⚠️ If the caller is an owner of the Safe, it can trivially sign any hash with a pre-approve signature and may reduce the threshold of the signature by 1. ⚠️⚠️⚠️
+     *      ⚠️⚠️⚠️ If the caller is an owner of the Safe, it can trivially sign any hash with a pre-approved signature and may reduce the threshold of the signature by 1. ⚠️⚠️⚠️
      * @param dataHash Hash of the data (could be either a message hash or transaction hash).
      * @param data **IGNORED** The data pre-image.
      * @param signatures Packed signature data that should be verified.
@@ -384,7 +384,7 @@ contract Safe is
      *         The `data` parameter is completely ignored during signature verification.
      * @dev This function is provided for compatibility with previous versions.
      *      Use `checkNSignatures(address,bytes32,bytes,uint256)` instead.
-     *      ⚠️⚠️⚠️ If the caller is an owner of the Safe, it can trivially sign any hash with a pre-approve signature and may reduce the threshold of the signature by 1. ⚠️⚠️⚠️
+     *      ⚠️⚠️⚠️ If the caller is an owner of the Safe, it can trivially sign any hash with a pre-approved signature and may reduce the threshold of the signature by 1. ⚠️⚠️⚠️
      * @param dataHash Hash of the data (could be either a message hash or transaction hash).
      * @param data **IGNORED** The data pre-image.
      * @param signatures Packed signature data that should be verified.
